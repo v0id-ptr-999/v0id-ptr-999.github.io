@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+content="#050505">
+
+<title>AI Universe</title>
+
+<meta
+name="description"
+content="AI Universe - Next Generation Artificial Intelligence">
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/*==============================
+RESET
+==============================*/
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:"Inter",sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+overflow:hidden;
+
+background:#050505;
+
+color:white;
+
+width:100vw;
+
+height:100vh;
+
+}
+
+/*==============================
+BACKGROUND
+==============================*/
+
+.background{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+z-index:-999;
+
+background:
+
+radial-gradient(circle at center,
+
+#0d0d16 0%,
+
+#050505 65%,
+
+black 100%);
+
+}
+
+/*==============================
+BLACK HOLE
+==============================*/
+
+.blackhole{
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:380px;
+
+height:380px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+
+circle,
+
+black 18%,
+
+#120029 36%,
+
+#4400ff 58%,
+
+#00d9ff 82%,
+
+transparent 100%
+
+);
+
+filter:blur(1px);
+
+animation:
+
+rotateHole 22s linear infinite;
+
+box-shadow:
+
+0 0 70px #4d00ff,
+
+0 0 160px #00c3ff;
+
+}
+
+@keyframes rotateHole{
+
+0%{
+
+transform:
+
+translate(-50%,-50%)
+
+rotate(0deg);
+
+}
+
+100%{
+
+transform:
+
+translate(-50%,-50%)
+
+rotate(360deg);
+
+}
+
+}
+
+/*==============================
+AURORA
+==============================*/
+
+.aurora{
+
+position:absolute;
+
+width:1800px;
+
+height:1800px;
+
+left:-500px;
+
+top:-500px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(0,229,255,.08),
+
+transparent 70%
+
+);
+
+animation:
+
+auroraMove 20s ease-in-out infinite alternate;
+
+}
+
+@keyframes auroraMove{
+
+0%{
+
+transform:
+
+translate(0,0);
+
+}
+
+100%{
+
+transform:
+
+translate(250px,180px);
+
+}
+
+}
+
+/*==============================
+GLASS PANEL
+==============================*/
+
+.glass{
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:min(1100px,94vw);
+
+height:84vh;
+
+border-radius:35px;
+
+background:
+
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(22px);
+
+border:
+
+1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 0 50px rgba(0,229,255,.10);
+
+}
+
+/*==============================
+TITLE
+==============================*/
+
+.logo{
+
+position:absolute;
+
+left:50%;
+
+top:25px;
+
+transform:translateX(-50%);
+
+font-size:32px;
+
+font-weight:800;
+
+letter-spacing:3px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#00d9ff,
+
+#8c4cff,
+
+white
+
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.subtitle{
+
+position:absolute;
+
+left:50%;
+
+top:68px;
+
+transform:translateX(-50%);
+
+font-size:12px;
+
+opacity:.8;
+
+letter-spacing:2px;
+
+}
+
+/*==============================
+METEORS
+==============================*/
+
+.meteor{
+
+position:absolute;
+
+width:2px;
+
+height:140px;
+
+background:linear-gradient(
+
+to bottom,
+
+white,
+
+#00d9ff,
+
+transparent
+
+);
+
+opacity:.9;
+
+transform:rotate(35deg);
+
+animation:meteorFall linear infinite;
+
+}
+
+.m1{
+
+left:15%;
+
+top:-180px;
+
+animation-duration:6s;
+
+animation-delay:0s;
+
+}
+
+.m2{
+
+left:35%;
+
+top:-350px;
+
+animation-duration:7s;
+
+animation-delay:2s;
+
+}
+
+.m3{
+
+left:60%;
+
+top:-250px;
+
+animation-duration:5.5s;
+
+animation-delay:1s;
+
+}
+
+.m4{
+
+left:80%;
+
+top:-420px;
+
+animation-duration:8s;
+
+animation-delay:4s;
+
+}
+
+@keyframes meteorFall{
+
+0%{
+
+transform:
+
+translateY(0)
+
+translateX(0)
+
+rotate(35deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+
+translateY(1400px)
+
+translateX(700px)
+
+rotate(35deg);
+
+opacity:0;
+
+}
+
+}
+
+/*==============================
+STARS
+==============================*/
+
+.star{
+
+position:absolute;
+
+width:2px;
+
+height:2px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 10px white;
+
+animation:twinkle 3s infinite;
+
+}
+
+@keyframes twinkle{
+
+0%{
+
+opacity:.2;
+
+transform:scale(.6);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.4);
+
+}
+
+100%{
+
+opacity:.2;
+
+transform:scale(.6);
+
+}
+
+}
+
+/*==============================
+PLANETS
+==============================*/
+
+.planet{
+
+position:absolute;
+
+border-radius:50%;
+
+animation:planetRotate linear infinite;
+
+}
+
+.planet1{
+
+width:90px;
+
+height:90px;
+
+right:120px;
+
+top:130px;
+
+background:
+
+radial-gradient(
+
+circle at 30% 30%,
+
+#00d9ff,
+
+#003cff,
+
+#000822
+
+);
+
+animation-duration:60s;
+
+box-shadow:
+
+0 0 35px rgba(0,229,255,.5);
+
+}
+
+.planet2{
+
+width:55px;
+
+height:55px;
+
+left:120px;
+
+bottom:120px;
+
+background:
+
+radial-gradient(
+
+circle at 30% 30%,
+
+#ffb347,
+
+#ff5500,
+
+#441400
+
+);
+
+animation-duration:40s;
+
+}
+
+@keyframes planetRotate{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/*==============================
+GLASS REFLECTION
+==============================*/
+
+.glass::before{
+
+content:"";
+
+position:absolute;
+
+left:-120%;
+
+top:0;
+
+width:70%;
+
+height:100%;
+
+background:linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.15),
+
+transparent
+
+);
+
+transform:skewX(-25deg);
+
+animation:glassMove 8s infinite;
+
+}
+
+@keyframes glassMove{
+
+0%{
+
+left:-120%;
+
+}
+
+100%{
+
+left:170%;
+
+}
+
+}
+
+/*==============================
+LEFT SIDEBAR
+==============================*/
+
+.sidebar{
+
+position:absolute;
+
+left:25px;
+
+top:110px;
+
+width:240px;
+
+height:calc(84vh - 135px);
+
+border-radius:25px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+padding:20px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+.side-btn{
+
+height:48px;
+
+border-radius:14px;
+
+display:flex;
+
+align-items:center;
+
+padding-left:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+background:rgba(255,255,255,.05);
+
+font-size:14px;
+
+font-weight:500;
+
+}
+
+.side-btn:hover{
+
+background:#00d9ff33;
+
+transform:translateX(5px);
+
+}
+
+.history{
+
+margin-top:15px;
+
+flex:1;
+
+overflow:auto;
+
+}
+
+.history-title {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    padding-left: 4px;
+}
+
+.history-item{
+
+padding:12px;
+
+margin-bottom:10px;
+
+border-radius:12px;
+
+background:rgba(255,255,258,.04);
+
+cursor:pointer;
+
+font-size:14px;
+
+transition:.3s;
+
+}
+
+.history-item:hover{
+
+background:rgba(255,255,258,.08);
+
+}
+
+/*==============================
+AI CHAT PANEL
+==============================*/
+
+.ai-panel{
+
+position:absolute;
+
+left:285px;
+
+top:110px;
+
+width:calc(100% - 310px);
+
+height:calc(84vh - 135px);
+
+display:flex;
+
+flex-direction:column;
+
+padding-right:25px;
+
+}
+
+.chat-box{
+
+flex:1;
+
+overflow-y:auto;
+
+padding:25px;
+
+border-radius:22px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 0 30px rgba(0,229,255,.08);
+
+}
+
+.message{
+
+margin-bottom:18px;
+
+max-width:80%;
+
+padding:15px 20px;
+
+border-radius:18px;
+
+line-height:1.6;
+
+word-break: break-word;
+
+}
+
+.user{
+
+margin-left:auto;
+
+background:#2b4cff;
+
+}
+
+.ai{
+
+background:rgba(255,255,258,.08);
+
+}
+
+.input-bar{
+
+display:flex;
+
+gap:15px;
+
+margin-top:18px;
+
+}
+
+.input-bar input{
+
+flex:1;
+
+height:60px;
+
+border:none;
+
+outline:none;
+
+padding:0 20px;
+
+border-radius:18px;
+
+background:rgba(255,255,258,.08);
+
+color:white;
+
+font-size:16px;
+
+}
+
+.send{
+
+width:70px;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:18px;
+
+font-size:24px;
+
+background:linear-gradient(135deg,#00d9ff,#7a3cff);
+
+color:white;
+
+transition:.3s;
+
+}
+
+.send:hover{
+
+transform:scale(1.08);
+
+}
+
+/* =========================================
+   AI LOADING
+========================================= */
+.loading-dots span {
+    animation: loadingDot 1.4s infinite;
+    opacity:0;
+}
+.loading-dots span:nth-child(1) {
+    animation-delay:0s;
+}
+.loading-dots span:nth-child(2) {
+    animation-delay:.2s;
+}
+.loading-dots span:nth-child(3) {
+    animation-delay:.4s;
+}
+@keyframes loadingDot {
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+/* ==============================
+   TOP ACTIONS
+============================== */
+.top-actions {
+    position:absolute;
+    right:25px;
+    top:25px;
+    display:flex;
+    gap:10px;
+    z-index:20;
+}
+
+.top-actions button {
+    border:none;
+    padding:11px 16px;
+    border-radius:13px;
+    color:white;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+    backdrop-filter:blur(15px);
+}
+
+.login-btn {
+    background:
+        rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.12) !important;
+}
+
+.top-actions button:hover {
+    transform:translateY(-2px);
+    filter:brightness(1.15);
+}
+
+/*==============================
+MOBILE RESPONSIVE
+==============================*/
+
+@media (max-width:768px){
+
+body{
+overflow:auto;
+}
+
+.glass{
+
+width:100vw;
+height:100vh;
+
+border-radius:0;
+
+padding:15px;
+
+}
+
+.logo{
+
+font-size:30px;
+
+top:20px;
+
+}
+
+.subtitle{
+
+top:60px;
+
+font-size:12px;
+
+letter-spacing:1px;
+
+}
+
+.top-actions {
+    right:15px;
+    top:18px;
+}
+
+.top-actions button {
+    padding:9px 11px;
+    font-size:12px;
+}
+
+.sidebar{
+
+position:relative;
+
+left:0;
+
+top:90px;
+
+width:100%;
+
+height:auto;
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+padding:0;
+
+background:none;
+
+border:none;
+
+backdrop-filter:none;
+
+}
+
+.side-btn{
+
+justify-content:center;
+
+padding:12px;
+
+font-size:14px;
+
+}
+
+.history{
+
+display:none;
+
+}
+
+.ai-panel{
+
+position:relative;
+
+left:0;
+
+top:110px;
+
+transform:none;
+
+width:100%;
+
+height:calc(100vh - 180px);
+
+}
+
+.chat-box{
+
+height:100%;
+
+padding:15px;
+
+font-size:14px;
+
+}
+
+.message{
+
+max-width:95%;
+
+font-size:14px;
+
+padding:12px;
+
+}
+
+.input-bar{
+
+gap:8px;
+
+}
+
+.input-bar input{
+
+height:50px;
+
+font-size:15px;
+
+}
+
+.send{
+
+width:55px;
+
+height:50px;
+
+font-size:20px;
+
+}
+
+.blackhole{
+
+width:220px;
+
+height:220px;
+
+}
+
+.planet1{
+
+width:55px;
+
+height:55px;
+
+right:20px;
+
+top:120px;
+
+}
+
+.planet2{
+
+width:35px;
+
+height:35px;
+
+left:15px;
+
+bottom:120px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background">
+
+<div class="aurora"></div>
+
+<div class="blackhole"></div>
+
+<div class="planet planet1"></div>
+
+<div class="planet planet2"></div>
+
+<div class="meteor m1"></div>
+
+<div class="meteor m2"></div>
+
+<div class="meteor m3"></div>
+
+<div class="meteor m4"></div>
+
+<div class="star" style="left:10%;top:15%;"></div>
+
+<div class="star" style="left:20%;top:70%;"></div>
+
+<div class="star" style="left:45%;top:20%;"></div>
+
+<div class="star" style="left:65%;top:80%;"></div>
+
+<div class="star" style="left:80%;top:25%;"></div>
+
+<div class="star" style="left:92%;top:65%;"></div>
+
+</div>
+
+<div class="glass">
+
+<div class="logo">
+
+AI Universe
+
+</div>
+
+<div class="subtitle">
+
+NEXT GENERATION AI
+
+</div>
+
+<div class="top-actions">
+
+    <button class="login-btn" onclick="openLogin()">
+        👤 Login
+    </button>
+
+</div>
+
+<div class="sidebar">
+
+<div class="side-btn" onclick="newChat()">➕ New Chat</div>
+
+<div class="side-btn" onclick="quickPrompt('PDF haqqında məlumat ver')">📄 PDF</div>
+
+<div class="side-btn" onclick="quickPrompt('Mənə JavaScript kodu yaz')">💻 Code</div>
+
+<div class="side-btn" onclick="quickPrompt('Şəkil yaratmaq üçün prompt yaz')">🖼 Images</div>
+
+<div class="side-btn" onclick="quickPrompt('Azərbaycan dilindən İngilis dilinə tərcümə et')">🌍 Translate</div>
+
+<div class="side-btn" onclick="openLogin()">⚙ Settings</div>
+
+<div class="history" id="chatHistory">
+
+    <div class="history-title">
+        🕘 Chat History
+    </div>
+
+    <div id="historyList"></div>
+
+</div>
+
+</div>
+
+<div class="ai-panel">
+
+<div class="chat-box">
+
+<div class="message ai">
+
+👋 Salam!<br>
+
+Mən <b>AI Universe</b>.<br>
+
+Sənə necə kömək edə bilərəm?
+
+</div>
+
+</div>
+
+<div class="input-bar">
+
+<input
+
+type="text"
+
+placeholder="Mesaj yaz...">
+
+<button class="send">
+
+➜
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const chatBox=document.querySelector(".chat-box");
+
+const input=document.querySelector(".input-bar input");
+
+const send=document.querySelector(".send");
+
+function addUserMessage(text){
+
+const div=document.createElement("div");
+
+div.className="message user";
+
+div.textContent=text;
+
+chatBox.appendChild(div);
+
+chatBox.scrollTop=chatBox.scrollHeight;
+
+}
+
+function addAIMessage(text){
+
+const div=document.createElement("div");
+
+div.className="message ai";
+
+div.innerHTML=text.replace(/\n/g, '<br>');
+
+chatBox.appendChild(div);
+
+chatBox.scrollTop=chatBox.scrollHeight;
+
+}
+
+function sendMessage(){
+
+const text=input.value.trim();
+
+if(text==="") return;
+
+addUserMessage(text);
+
+input.value="";
+
+reply(text);
+
+}
+
+const AI_API_URL = "https://ai-universe.nigarhaciyeva106.workers.dev";
+
+function getUserId() {
+
+    let userId = localStorage.getItem("ai_universe_user_id");
+
+    if (!userId) {
+
+        userId = crypto.randomUUID();
+
+        localStorage.setItem("ai_universe_user_id", userId);
+
+    }
+
+    return userId;
+
+}
+
+async function askAI(message) {
+
+    const userId = getUserId();
+
+    const response = await fetch(
+        AI_API_URL,
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: message,
+                userId: userId
+            })
+        }
+    );
+
+    let data;
+
+    try {
+
+        data = await response.json();
+
+    } catch {
+
+        throw new Error(
+            "Server JSON cavabı qaytarmadı."
+        );
+
+    }
+
+    if (!response.ok) {
+
+        throw new Error(
+            data?.message ||
+            data?.error ||
+            data?.modelError ||
+            "AI server xətası baş verdi."
+        );
+
+    }
+
+    if (
+        data?.success === true &&
+        typeof data?.answer === "string"
+    ) {
+
+        return data.answer;
+
+    }
+
+    const fallbackAnswer =
+        data?.candidates?.[0]
+            ?.content?.parts
+            ?.map(part => part?.text || "")
+            ?.join("")
+            ?.trim();
+
+    if (fallbackAnswer) {
+
+        return fallbackAnswer;
+
+    }
+
+    throw new Error(
+        data?.error || data?.message || "AI-dan düzgün cavab gəlmədi."
+    );
+
+}
+
+async function reply(message) {
+
+    const loaderDiv = document.createElement("div");
+
+    loaderDiv.className = "message ai";
+
+    loaderDiv.innerHTML = `
+        <span class="loading-dots">
+            AI düşünür<span>.</span><span>.</span><span>.</span>
+        </span>
+    `;
+
+    chatBox.appendChild(loaderDiv);
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    try {
+
+        const answer = await askAI(message);
+
+        loaderDiv.remove();
+
+        addAIMessage(answer);
+
+    } catch (error) {
+
+        console.error("AI Universe:", error);
+
+        loaderDiv.remove();
+
+        addAIMessage(
+            "⚠️ " + (
+                error.modelError || 
+                error.message ||
+                "Naməlum xəta baş verdi."
+            )
+        );
+
+    }
+}
+
+function openLogin() {
+
+    alert(
+        "👤 Login sistemi tezliklə aktiv olacaq."
+    );
+
+}
+
+function newChat() {
+    chatBox.innerHTML = `
+        <div class="message ai">
+            👋 Yeni söhbət başladı!<br>Sənə necə kömək edə bilərəm?
+        </div>
+    `;
+}
+
+function quickPrompt(text) {
+    input.value = text;
+    input.focus();
+}
+
+send.onclick = sendMessage;
+
+input.addEventListener("keydown", e => {
+
+    if(e.key === "Enter"){
+
+        sendMessage();
+
+    }
+
+});
+
+function updateLoginUI() {
+
+    const loggedIn =
+        localStorage.getItem("ai_universe_logged_in") === "true";
+
+    const history =
+        document.getElementById("chatHistory");
+
+    if (!history) return;
+
+    if (loggedIn) {
+
+        history.style.display = "block";
+
+    } else {
+
+        history.style.display = "none";
+
+    }
+}
+
+updateLoginUI();
+
+</script>
+
+</body>
+
+</html>
