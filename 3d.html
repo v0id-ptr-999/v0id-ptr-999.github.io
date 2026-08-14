@@ -1192,6 +1192,8 @@ NEXT GENERATION AI
 
 <div class="side-btn" onclick="activateAzMode()">🇦🇿 Azərbaycan dili</div>
 
+<div class="side-btn" onclick="activateAzAcademic()">🎓 Akademik AZ</div>
+
 <div class="side-btn">▧ Images</div>
 
 <div class="side-btn" onclick="quickPrompt('Şəkil yaratmaq üçün prompt yaz')">🖼 Images</div>
@@ -1367,6 +1369,31 @@ function activateAzMode(){
     input.focus();
 }
 
+let azAcademicMode = false;
+
+function activateAzAcademic(){
+
+    azAcademicMode = !azAcademicMode;
+
+    if(azAcademicMode){
+
+        addAIMessage(
+            "🎓 <b>Akademik Azərbaycan dili aktivdir!</b><br>" +
+            "Cavablar daha elmi, dəqiq və sistemli üslubda veriləcək."
+        );
+
+        input.placeholder = "Akademik mövzunu yaz...";
+
+    }else{
+
+        addAIMessage("🌐 Akademik Azərbaycan dili söndürüldü.");
+
+        input.placeholder = "Mesaj yaz...";
+    }
+
+    input.focus();
+}
+
 async function askAI(message) {
 
     const userId = getUserId();
@@ -1413,6 +1440,24 @@ Qaydalar:
 - İstifadəçi gündəlik danışırsa, gündəlik və təbii üslubdan istifadə et.
 
 İstifadəçinin mesajı:
+${message}`;
+    }
+
+    if (azAcademicMode) {
+
+        finalMessage =
+`Sən AI Universe-in Akademik Azərbaycan dili mühərrikisən.
+
+Qaydalar:
+- Cavabları Azərbaycan dilində ver.
+- Elmi və akademik üslubdan istifadə et.
+- Terminləri dəqiq və düzgün işlət.
+- Məlumatı məntiqli və sistemli şəkildə təqdim et.
+- Lazım olduqda başlıqlar, maddələr və nümunələrdən istifadə et.
+- Gündəlik jarqondan istifadə etmə.
+- Cavabın səviyyəsini istifadəçinin sualına uyğun saxla.
+
+İstifadəçinin sualı:
 ${message}`;
     }
 
