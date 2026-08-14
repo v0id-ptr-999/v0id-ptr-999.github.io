@@ -1188,6 +1188,8 @@ NEXT GENERATION AI
 
 <div class="side-btn" onclick="quickPrompt('Mənə JavaScript kodu yaz')">💻 Code</div>
 
+<div class="side-btn" onclick="activateDeveloperAssist()">🧑‍💻 Developer Assist</div>
+
 <div class="side-btn" onclick="quickPrompt('Şəkil yaratmaq üçün prompt yaz')">🖼 Images</div>
 
 <div class="side-btn" onclick="quickPrompt('Azərbaycan dilindən İngilis dilinə tərcümə et')">🌍 Translate</div>
@@ -1310,9 +1312,61 @@ function getUserId() {
 
 }
 
+let developerAssist = false;
+
+function activateDeveloperAssist(){
+
+    developerAssist = !developerAssist;
+
+    if(developerAssist){
+
+        addAIMessage(
+            "🧑‍💻 <b>Developer Assist aktivdir!</b><br>" +
+            "Kod yaz, xəta göndər, layihə strukturunu göstər və ya kodunu izah etdirməyimi istə."
+        );
+
+        input.placeholder = "Kodunu və ya tapşırığını yaz...";
+
+    }else{
+
+        addAIMessage("🤖 Normal AI rejiminə qayıtdıq.");
+
+        input.placeholder = "Mesaj yaz...";
+
+    }
+
+    input.focus();
+}
+
 async function askAI(message) {
 
     const userId = getUserId();
+
+    let finalMessage = message;
+
+    if (developerAssist) {
+
+        finalMessage =
+`Sən AI Universe Developer Assist-sən.
+
+İstifadəçiyə proqramlaşdırma üzrə peşəkar kömək et.
+
+Sənin əsas vəzifələrin:
+- Kod yazmaq
+- Xətaları tapmaq
+- Kodu düzəltmək
+- Kodu izah etmək
+- HTML, CSS, JavaScript və Python ilə kömək etmək
+- Layihə strukturunu qurmaq
+- Debugging etmək
+- Daha yaxşı və təhlükəsiz həllər təklif etmək
+
+Cavabların praktik, aydın və konkret olsun.
+Kod tələb olunursa, işlək kod nümunəsi ver.
+
+İstifadəçinin tapşırığı:
+${message}`;
+    }
 
     const response = await fetch(
         AI_API_URL,
@@ -1324,7 +1378,7 @@ async function askAI(message) {
             },
 
             body: JSON.stringify({
-                message: message,
+                message: finalMessage,
                 userId: userId
             })
         }
