@@ -1190,6 +1190,10 @@ NEXT GENERATION AI
 
 <div class="side-btn" onclick="activateDeveloperAssist()">🧑‍💻 Developer Assist</div>
 
+<div class="side-btn" onclick="activateAzMode()">🇦🇿 Azərbaycan dili</div>
+
+<div class="side-btn">▧ Images</div>
+
 <div class="side-btn" onclick="quickPrompt('Şəkil yaratmaq üçün prompt yaz')">🖼 Images</div>
 
 <div class="side-btn" onclick="quickPrompt('Azərbaycan dilindən İngilis dilinə tərcümə et')">🌍 Translate</div>
@@ -1338,6 +1342,31 @@ function activateDeveloperAssist(){
     input.focus();
 }
 
+let azMode = false;
+
+function activateAzMode(){
+
+    azMode = !azMode;
+
+    if(azMode){
+
+        addAIMessage(
+            "🇦🇿 <b>Azərbaycan dili mühərriki aktivdir!</b><br>" +
+            "Artıq cavablar Azərbaycan dilində veriləcək."
+        );
+
+        input.placeholder = "Azərbaycan dilində yaz...";
+
+    }else{
+
+        addAIMessage("🌐 Azərbaycan dili mühərriki söndürüldü.");
+
+        input.placeholder = "Mesaj yaz...";
+    }
+
+    input.focus();
+}
+
 async function askAI(message) {
 
     const userId = getUserId();
@@ -1365,6 +1394,25 @@ Cavabların praktik, aydın və konkret olsun.
 Kod tələb olunursa, işlək kod nümunəsi ver.
 
 İstifadəçinin tapşırığı:
+${message}`;
+    }
+
+    if (azMode) {
+
+        finalMessage =
+`Sən AI Universe Azərbaycan dili mühərrikisən.
+
+İstifadəçi ilə Azərbaycan dilində təbii danış.
+
+Qaydalar:
+- Cavabları Azərbaycan dilində ver.
+- Azərbaycan dilinin düzgün qrammatikasından istifadə et.
+- Süni və robotik ifadələrdən mümkün qədər uzaq dur.
+- İstifadəçinin üslubuna uyğun danış.
+- Texniki terminləri lazım olduqda Azərbaycan dilində izah et.
+- İstifadəçi gündəlik danışırsa, gündəlik və təbii üslubdan istifadə et.
+
+İstifadəçinin mesajı:
 ${message}`;
     }
 
