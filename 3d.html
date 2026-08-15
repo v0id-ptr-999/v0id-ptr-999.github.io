@@ -1194,6 +1194,8 @@ NEXT GENERATION AI
 
 <div class="side-btn" onclick="activateAzAcademic()">🎓 Akademik AZ</div>
 
+<div class="side-btn" onclick="activateAzSimple()">📚 Sadə AZ</div>
+
 <div class="side-btn">▧ Images</div>
 
 <div class="side-btn" onclick="quickPrompt('Şəkil yaratmaq üçün prompt yaz')">🖼 Images</div>
@@ -1394,6 +1396,31 @@ function activateAzAcademic(){
     input.focus();
 }
 
+let azSimpleMode = false;
+
+function activateAzSimple(){
+
+    azSimpleMode = !azSimpleMode;
+
+    if(azSimpleMode){
+
+        addAIMessage(
+            "📚 <b>Sadə Azərbaycan dili aktivdir!</b><br>" +
+            "Mövzuları mümkün qədər asan və addım-addım izah edəcəyəm."
+        );
+
+        input.placeholder = "Sualını sadə şəkildə yaz...";
+
+    }else{
+
+        addAIMessage("🌐 Sadə Azərbaycan dili söndürüldü.");
+
+        input.placeholder = "Mesaj yaz...";
+    }
+
+    input.focus();
+}
+
 async function askAI(message) {
 
     const userId = getUserId();
@@ -1456,6 +1483,24 @@ Qaydalar:
 - Lazım olduqda başlıqlar, maddələr və nümunələrdən istifadə et.
 - Gündəlik jarqondan istifadə etmə.
 - Cavabın səviyyəsini istifadəçinin sualına uyğun saxla.
+
+İstifadəçinin sualı:
+${message}`;
+    }
+
+    if (azSimpleMode) {
+
+        finalMessage =
+`Sən AI Universe-in Sadə Azərbaycan dili mühərrikisən.
+
+Qaydalar:
+- Azərbaycan dilində danış.
+- Çətin anlayışları sadə sözlərlə izah et.
+- Addım-addım izah ver.
+- Lazım olduqda gündəlik nümunələrdən istifadə et.
+- İstifadəçini lazımsız terminlərlə yükləmə.
+- Məktəb səviyyəli suallarda aydın və başadüşülən ol.
+- Cavabı həddindən artıq uzatma.
 
 İstifadəçinin sualı:
 ${message}`;
