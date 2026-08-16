@@ -2172,7 +2172,7 @@ font-family:Inter,sans-serif;
 <div class="loadingBar">
 <div class="loadingFill"></div>
 </div>
-<p>Loading 120+ AI Systems...</p>
+<p>Loading AI Universe...</p>
 </div>
 
 <div id="progress"></div>
@@ -2182,7 +2182,7 @@ font-family:Inter,sans-serif;
 <div class="cursor"></div>
 
 <section class="top-contact reveal">
-<div>📍 Ünvan: Bakı şəhəri, Qız Qalasının yanı</div>
+<div>📍 Ünvan: Bakı şəhəri</div>
 <div>📧 Email: terlanhacizada999@gmail.com</div>
 <div>📞 Telefon: Yoxumdu 😢</div>
 </section>
@@ -2205,7 +2205,7 @@ AI Universe
 <li><a href="#categories">Kateqoriyalar</a></li>
 <li><a href="#topai">Top AI</a></li>
 <li><a href="#stats">Statistika</a></li>
-<li><a href="#parallax">Parallax</a></li>
+<li><a href="#parallax">🌌 Universe Experience</a></li>
 <li><a href="#showcase">Bakı</a></li>
 <li><a href="#gence1">Gəncə 1</a></li>
 <li><a href="#gence2">Gəncə 2</a></li>
@@ -2237,7 +2237,7 @@ Azərbaycan dilində AI təcrübəsi — hamısı AI Universe-də.
 <input
 type="text"
 id="searchInput"
-placeholder="120+ AI arasında axtar...">
+placeholder="AI aləti axtar...">
 </div>
 
 <div class="hero-buttons">
@@ -2246,7 +2246,7 @@ placeholder="120+ AI arasında axtar...">
     </a>
 
     <a href="#blacksea-ai" class="hero-btn secondary">
-        ✨ AI Universe haqqında
+        ✨ AI Universe-i kəşf et
     </a>
 </div>
 
@@ -2731,13 +2731,26 @@ canvas.height=window.innerHeight;
 resizeBH();
 window.addEventListener("resize",resizeBH);
 
-window.onload=()=>{
-window.scrollTo({top:0,left:0,behavior:"instant"});
-setTimeout(()=>{
-loader.style.opacity="0";
-setTimeout(()=>{loader.remove();},700);
-},2300);
-}
+window.addEventListener("load",()=>{
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"instant"
+    });
+
+    const loader = document.getElementById("loader");
+
+    if(loader){
+        setTimeout(()=>{
+            loader.style.opacity="0";
+
+            setTimeout(()=>{
+                loader.remove();
+            },700);
+
+        },2300);
+    }
+});
 
 window.addEventListener("scroll",()=>{
 const h=document.documentElement;
