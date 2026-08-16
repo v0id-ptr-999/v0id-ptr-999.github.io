@@ -662,6 +662,7 @@ flex-direction:column;
 
 gap:12px;
 
+overflow-y: auto;
 }
 
 .side-btn{
@@ -686,6 +687,7 @@ font-size:14px;
 
 font-weight:500;
 
+flex-shrink: 0;
 }
 
 .side-btn:hover{
@@ -933,6 +935,36 @@ transform:scale(1.08);
     filter:brightness(1.15);
 }
 
+.mode-menu {
+    display: none;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 12px;
+    background: rgba(0,0,0,.45);
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.mode-menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mode-menu button {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    background: rgba(255,255,255,.08);
+    color: white;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mode-menu button:hover {
+    background: rgba(0,195,255,.18);
+}
+
 /*==============================
 MOBILE RESPONSIVE
 ==============================*/
@@ -994,9 +1026,9 @@ width:100%;
 
 height:auto;
 
-display:grid;
+display:flex;
 
-grid-template-columns:repeat(2,1fr);
+flex-direction: column;
 
 gap:10px;
 
@@ -1196,6 +1228,17 @@ NEXT GENERATION AI
 
 <div class="side-btn" onclick="activateAzSimple()">📚 Sadə AZ</div>
 
+<div class="side-btn" onclick="toggleModes()">🧠 Multi-Mode</div>
+
+<div id="modeMenu" class="mode-menu">
+    <button onclick="setMode('normal')">🤖 Normal AI</button>
+    <button onclick="setMode('developer')">💻 Developer</button>
+    <button onclick="setMode('teacher')">👨‍🏫 Müəllim</button>
+    <button onclick="setMode('creative')">🎨 Kreativ</button>
+    <button onclick="setMode('business')">💼 Biznes</button>
+    <button onclick="setMode('science')">🔬 Elm</button>
+</div>
+
 <div class="side-btn">▧ Images</div>
 
 <div class="side-btn" onclick="quickPrompt('Şəkil yaratmaq üçün prompt yaz')">🖼 Images</div>
@@ -1342,6 +1385,34 @@ function activateDeveloperAssist(){
         input.placeholder = "Mesaj yaz...";
 
     }
+
+    input.focus();
+}
+
+let currentMode = "normal";
+
+function toggleModes() {
+    document.getElementById("modeMenu").classList.toggle("active");
+}
+
+function setMode(mode) {
+
+    currentMode = mode;
+
+    const names = {
+        normal: "🤖 Normal AI",
+        developer: "💻 Developer",
+        teacher: "👨‍🏫 Müəllim",
+        creative: "🎨 Kreativ",
+        business: "💼 Biznes",
+        science: "🔬 Elm"
+    };
+
+    addAIMessage(
+        "🧠 <b>Rejim dəyişdi:</b> " + names[mode]
+    );
+
+    document.getElementById("modeMenu").classList.remove("active");
 
     input.focus();
 }
